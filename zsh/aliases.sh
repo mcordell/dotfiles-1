@@ -26,6 +26,47 @@ alias tn='wemux'
 alias tk='wemux stop'
 
 # Git Aliases
+
+# Amends all staged changes to last commit.
+alias git_amend_commit='git commit -a --amend --no-edit'
+
+# Prints out a list of all the changed files from the last commit.
+alias git_changed_files='git diff-tree --no-commit-id --name-only -r $(git log -1 --format="%H")'
+
+# Prints out a count of the amount of changed files.
+alias git_changed_files_count='git_changed_files | wc -l'
+
+# Prints the short text of the current branch name.
+alias git_current_branch_name='git symbolic-ref HEAD --short'
+
+# Removes a branch. Calls git_remove_branch
+alias git_delete_branch='git_remove_branch'
+
+# Removes a file from source control.'
+alias git_remove_file='git rm --cached'
+
+# Removes all .rej files.
+alias git_remove_rej='find . -name "*.rej" -exec rm -f {} \;'
+
+# Prints out the last commit.
+alias git_last_commit='git log -1'
+
+# Shows a diff between the last two commits.
+alias git_last_commit_diff='git diff HEAD^ HEAD'
+
+# Prints out the hash of the last commit.
+alias git_last_commit_hash='git log -1 --format="%H"'
+
+# Prints the list of deleted files
+alias git_show_deleted_files='git log --diff-filter=D --summary | grep delete'
+
+# Undo the last commit. The changes from the last commit will be staged for commit.
+alias git_reset_last_commit='git reset --soft HEAD^'
+
+# Unstage everything.
+alias git_unstage='git reset HEAD .'
+
+# Shorthand aliases
 alias amend='echo "use gca"; git commit --amend'
 alias cleanup='git fetch origin --prune'
 alias ga='git add'
@@ -48,6 +89,11 @@ alias gpr='git pull'
 alias grc='git rebase --continue'
 alias gpom='git push -u origin master'
 alias gs='git status'
+
+# All the memes
+alias such=git
+alias very=git
+alias wow='git status'
 
 # Ruby
 alias b='bundle exec'
