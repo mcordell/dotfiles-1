@@ -21,8 +21,9 @@ alias work='web'
 # Joining a work session
 alias attach='wemux attach'
 
-# Other Tmux aliases
-alias tn='wemux'
+# Leaving a work session (note it's a call to tmux)
+alias detach='tmux detach'
+
 alias tk='wemux stop'
 
 # Git Aliases
