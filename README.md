@@ -34,14 +34,20 @@ rake dotfiles:bootstrap
 To start a new session:
 
 ```bash
-work # or tmuxinator start rails
+work
 ```
 
-To connect to a session:
+To connect to another person's session:
 
 ```bash
 ssh <user>@<ip>
 wemux client pair
+```
+
+To leave a session (but keep it running in the background)
+
+```bash
+detach
 ```
 
 ## Updating
