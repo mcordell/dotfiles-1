@@ -3,7 +3,7 @@
 let mapleader=","
 let maplocalleader=","
 
-map <Leader>a  :Ack
+map <Leader>.  :Ag 
 map <Leader>a  :call    RunAllSpecs()<CR>
 map <Leader>b  :!bundle install<cr>
 map <Leader>e  :e       <C-R>=expand("%:p:h") . '/'<CR>

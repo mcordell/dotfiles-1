@@ -66,13 +66,15 @@ Plugin 'tpope/vim-classpath'
 
 " Cache files (required for vim-snipmate below)
 Plugin 'MarcWeber/vim-addon-mw-utils'
+" Utility functions for snipmate
+Plugin 'tomtom/tlib_vim'
 " Implement snippets like TextMate
 Plugin 'garbas/vim-snipmate'
 " Default snippets
 Plugin 'honza/vim-snippets'
 
 " Search with the silver searcher
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 
 " Align hashes, .csv files and more. Mapped to <CR> in visual mode
 Plugin 'junegunn/vim-easy-align'

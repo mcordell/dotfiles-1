@@ -12,9 +12,6 @@ set tabstop=2
 " Set relative number
 set relativenumber
 
-" Ignore some files in ctrl-p
-set wildignore+=*/tmp/*,*/vendor/bundle/*
-
 set nocompatible
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set history=500		" keep 500 lines of command line history
@@ -86,12 +83,12 @@ set list listchars=tab:»·,trail:·
 let g:rspec_command='call Send_to_Tmux("be rspec {spec}\n")'
 
 " Syntax Highlighting
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown textwidth=79 colorcolumn=80
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost nginx.conf set filetype=nginx
-autocmd BufNewFile,BufReadPost *.rb,Gemfile,Vagrantfile,*.thor set filetype=ruby textwidth=79 colorcolumn=80
+autocmd BufNewFile,BufReadPost *.rb,Gemfile,Vagrantfile,*.thor set filetype=ruby
+
+" 79 characters long, 80 character colorcolumn
+autocmd Filetype ruby,markdown set textwidth=79|set colorcolumn=80
 
 " Remove trailing whitespace!
-au BufWritePre *.rb :%s/\s\+$//e
-au BufWritePre *.rake :%s/\s\+$//e
-au BufWritePre *.haml :%s/\s\+$//e
-au BufWritePre *.coffee :%s/\s\+$//e
+au BufWritePre *.rb,*.rake,*.haml,*.coffee :%s/\s\+$//e
