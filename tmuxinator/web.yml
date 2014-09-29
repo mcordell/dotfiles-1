@@ -12,4 +12,3 @@ windows:
       - git status
   - server:  "bundle exec rails server"
   - console: "bundle exec rails console"
-  - search:  "elasticsearch start"

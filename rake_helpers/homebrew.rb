@@ -40,7 +40,7 @@ class Homebrew
       tmux \
       wget \
       git \
-      elasticsearch \
+      memcached \
       autoconf \
       automake \
       go \

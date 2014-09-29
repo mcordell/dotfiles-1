@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-set shell=/bin/zsh
+set shell=/usr/local/bin/zsh
 
 " Vundle packages
 source $HOME/.dotfiles/vim/vundle.vim
@@ -72,6 +72,9 @@ source $HOME/.dotfiles/vim/keyboard_shortcuts.vim
 
 " Rename current file (courtesy of Gary Bernhardt)
 source $HOME/.dotfiles/vim/rename_current_file.vim
+
+" Run current test
+source $HOME/.dotfiles/vim/run_current_test.vim
 
 " Themes
 source $HOME/.dotfiles/vim/themes.vim
