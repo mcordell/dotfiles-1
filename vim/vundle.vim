@@ -11,6 +11,9 @@ Plugin 'koron/nyancat-vim'
 " Color themes
 Plugin 'flazz/vim-colorschemes'
 
+" Enable support for tmux
+Plugin 'jgdavey/tslime.vim'
+
 " Autocomplete filenames with fuzzy file search
 Plugin 'wincent/Command-T'
 
