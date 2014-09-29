@@ -10,3 +10,5 @@
   smudge = git-media-smudge %f
 [merge]
   ff = only
+[initdir]
+  templatedir = ~/.dotfiles/git/templates
