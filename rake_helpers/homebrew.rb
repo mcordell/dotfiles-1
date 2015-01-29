@@ -64,7 +64,8 @@ class Homebrew
       readline \
       vim \
       wemux \
-      ctags
+      ctags \
+      qt
       `
     end
   end

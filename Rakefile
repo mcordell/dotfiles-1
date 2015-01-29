@@ -10,7 +10,11 @@ namespace :dotfiles do
       klass.set_symlinks
     end
 
+    Code.setup
+
     [Homebrew, Zsh, Ruby, Vim].each { |klass| klass.setup }
+
+    Code.install_gems
   end
 
   task :update do
