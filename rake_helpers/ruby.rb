@@ -16,12 +16,14 @@ class Ruby
     def install_rvm
       puts 'installing rvm'
       `\curl -sSL https://get.rvm.io | bash -s stable`
-      `source ~/.rvm/scripts/rvm`
+      system "source #{Dir.home}/.rvm/scripts/rvm"
     end
 
     def install_latest_ruby
       puts 'installing latest ruby. WARNING this takes a while.'
       `ruby-install --no-reinstall ruby #{Code.ruby_version}`
+
+      #TODO NOT WORKING
       `rvm use #{Code.ruby_version}`
     end
 

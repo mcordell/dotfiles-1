@@ -9,6 +9,7 @@ class Code
     end
 
     def install_gems
+      #TODO not working
       `bundle install`
     end
 
@@ -18,17 +19,16 @@ class Code
       f.lines[0].strip()
     end
 
-    private
 
     def setup_git_directories
       `mkdir ~/Code`
       `mkdir ~/Code/Work`
       `mkdir ~/Code/Work/currica`
-      `cd ~/Code/Work/currica`
+      Dir.chdir("#{Dir.home}/Code/Work/currica/web")
     end
 
     def copy_gemrc
-      `cp .gemrc ~/.gemrc`
+      `cp ruby/.gemrc #{Dir.home}/.gemrc`
     end
   end
 end
