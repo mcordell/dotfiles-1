@@ -23,8 +23,7 @@ class Ruby
       puts 'installing latest ruby. WARNING this takes a while.'
       `ruby-install --no-reinstall ruby #{Code.ruby_version}`
 
-      #TODO NOT WORKING
-      `rvm use #{Code.ruby_version}`
+      system "bash --login -i -c 'rvm use #{Code.ruby_version}'"
     end
 
     def use_latest_ruby

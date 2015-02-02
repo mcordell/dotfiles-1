@@ -9,8 +9,8 @@ class Code
     end
 
     def install_gems
-      #TODO not working
-      `bundle install`
+      # Requires a change to web to work properly.
+      # `bundle install`
     end
 
     def ruby_version
