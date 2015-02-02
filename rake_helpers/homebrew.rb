@@ -2,8 +2,6 @@ class Homebrew
   class << self
     def setup
       install_or_update_homebrew
-
-      install_packages
     end
 
     def update
@@ -21,51 +19,45 @@ class Homebrew
     end
 
     def exists?
-      `brew`.match(%r(Example usage)) ? true : false
+      system 'which brew > /dev/null'
     end
 
     def install
       puts 'Installing homebrew'
 
       `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
+
+      install_packages
     end
 
     def install_packages
       puts 'Installing packages'
 
       `brew install \
-      phantomjs \
-      reattach-to-user-namespace \
-      the_silver_searcher \
-      tmux \
-      wget \
+      ctags \
+      gdbm \
       git \
-      memcached \
-      autoconf \
-      automake \
       go \
       imagemagick \
       leiningen \
       libelf \
+      libffi \
       libevent \
       libxml2 \
       libxslt \
-      openssl \
-      postgresql \
-      chruby \
-      ruby-build \
-      node \
-      zsh \
-      gdbm \
-      libffi \
-      ruby-install \
       libyaml \
-      openssl \
-      readline \
+      memcached \
+      node \
+      phantomjs \
+      postgresql \
+      qt \
+      reattach-to-user-namespace \
+      the_silver_searcher \
+      tmux \
       vim \
       wemux \
-      ctags \
-      qt
+      wget \
+      zsh
       `
     end
   end

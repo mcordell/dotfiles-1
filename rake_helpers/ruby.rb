@@ -1,7 +1,5 @@
 class Ruby
   class << self
-    # Our philosophy is to always use the latest ruby we ensure the latest
-    # ruby is used by sourcing `chruby ruby` in our ``~/.zshrc``
     def setup
       install_rvm
 
@@ -9,20 +7,22 @@ class Ruby
 
       install_global_gems
     end
-    alias_method :update, :setup
+
+    def update
+      install_latest_ruby
+    end
 
     private
 
     def install_rvm
       puts 'installing rvm'
-      `\curl -sSL https://get.rvm.io | bash -s stable`
+      `\\curl -sSL https://get.rvm.io | bash -s stable`
       system "source #{Dir.home}/.rvm/scripts/rvm"
     end
 
     def install_latest_ruby
       puts 'installing latest ruby. WARNING this takes a while.'
-      `ruby-install --no-reinstall ruby #{Code.ruby_version}`
-
+      system "bash --login -i -c 'rvm install ruby-#{Code.ruby_version}'"
       system "bash --login -i -c 'rvm use #{Code.ruby_version}'"
     end
 

@@ -6,24 +6,26 @@ namespace :dotfiles do
 
     Homebrew.setup
 
+    Code.setup
+
+    Ruby.setup
+  end
+
+  task :symlinks do
     [Zsh, Vim, Tmux, Tmuxinator, Git].each do |klass|
       klass.set_symlinks
     end
+  end
 
-    Code.setup
-
-    [Homebrew, Zsh, Ruby, Vim].each { |klass| klass.setup }
-
-    Code.install_gems
+  task :plugins do
+    [Zsh, Vim].each { |klass| klass.setup }
   end
 
   task :update do
-    # Github.pull_master
-    #
-    # Homebrew.update
-    #
-    # Ruby.update
-    #
-    # Vim.update
+    Homebrew.update
+
+    Ruby.update
+
+    Vim.update
   end
 end
