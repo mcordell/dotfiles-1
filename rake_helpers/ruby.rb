@@ -12,6 +12,10 @@ class Ruby
       install_latest_ruby
     end
 
+    def rvm_warning
+      puts "Please run 'rvm use ruby-#{Code.ruby_version}' in your console to complete installation."
+    end
+
     private
 
     def install_rvm
@@ -24,7 +28,6 @@ class Ruby
     def install_latest_ruby
       puts 'Installing latest ruby. WARNING this takes a while.'
       system "bash --login -i -c 'rvm install ruby-#{Code.ruby_version}'"
-      system "bash --login -i -c 'rvm use #{Code.ruby_version}'"
     end
 
     def use_latest_ruby

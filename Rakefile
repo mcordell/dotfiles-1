@@ -11,6 +11,8 @@ namespace :dotfiles do
     Ruby.setup
 
     Code.install_gems
+
+    Ruby.rvm_warning
   end
 
   task :symlinks do
