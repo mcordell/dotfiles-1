@@ -6,8 +6,6 @@ class Code
       setup_git_directories
 
       system('git clone https://github.com/currica/web.git')
-
-      install_gems
     end
 
     def install_gems

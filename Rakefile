@@ -9,6 +9,8 @@ namespace :dotfiles do
     Code.setup
 
     Ruby.setup
+
+    Code.install_gems
   end
 
   task :symlinks do
