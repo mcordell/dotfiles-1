@@ -25,7 +25,6 @@ class Homebrew
     def install
       puts 'Installing Homebrew'
 
-      # `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
       system('ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
 
       puts 'Finished installing Homebrew.'

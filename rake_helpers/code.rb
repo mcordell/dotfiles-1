@@ -5,7 +5,7 @@ class Code
 
       setup_git_directories
 
-      `git clone https://github.com/currica/web.git`
+      system('git clone https://github.com/currica/web.git')
 
       install_gems
     end
