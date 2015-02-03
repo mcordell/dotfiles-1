@@ -15,9 +15,10 @@ class Ruby
     private
 
     def install_rvm
-      puts 'Installing rvm'
+      puts 'Installing RVM'
       `\\curl -sSL https://get.rvm.io | bash -s stable`
       system "source #{Dir.home}/.rvm/scripts/rvm"
+      puts 'RVM installed'
     end
 
     def install_latest_ruby
