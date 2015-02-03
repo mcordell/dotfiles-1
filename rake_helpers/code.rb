@@ -11,8 +11,14 @@ class Code
     end
 
     def install_gems
+      puts 'Installing gems'
       Dir.chdir("#{Dir.home}/Code/Work/currica/web")
-      system('bundle install')
+      #https://github.com/bundler/bundler/issues/925
+      require 'bundler'
+      Bundler.with_clean_env do
+        system 'bundle install'
+      end
+      puts 'Gems installed'
     end
 
     def ruby_version
