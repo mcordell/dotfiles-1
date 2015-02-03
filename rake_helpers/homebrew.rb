@@ -30,6 +30,10 @@ class Homebrew
 
       puts 'Finished installing Homebrew.'
 
+      puts 'Running brew doctor'
+
+      system('brew doctor')
+
       install_packages
     end
 
