@@ -12,8 +12,7 @@ class Code
 
     def install_gems
       Dir.chdir("#{Dir.home}/Code/Work/currica/web")
-      # Requires a change to web to work properly.
-      # `bundle install`
+      system('bundle install')
     end
 
     def ruby_version
