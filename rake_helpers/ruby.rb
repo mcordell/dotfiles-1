@@ -13,7 +13,7 @@ class Ruby
     end
 
     def rvm_warning
-      puts "Please run 'rvm use ruby-#{Code.ruby_version}' in your console to complete installation."
+      puts "Please run 'source ~/.profile' in your console to complete installation."
     end
 
     private
