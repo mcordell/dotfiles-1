@@ -5,7 +5,7 @@ class Ruby
 
       install_latest_ruby
 
-      install_global_gems
+      install_bundler
     end
 
     def update
@@ -34,15 +34,10 @@ class Ruby
       puts 'using the latest ruby'
     end
 
-    def install_global_gems
-      puts 'Installing global gems'
+    def install_bundler
+      puts 'Installing bundler'
 
-      `gem install bundler \
-        gem-ctags \
-        rubygems-bundler \
-        rake \
-        byebug \
-        tmuxinator`
+      system "bash --login -i -c 'rvm use #{Code.ruby_version}; rvm @global do gem install bundler'"
     end
   end
 end
