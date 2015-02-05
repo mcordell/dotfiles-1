@@ -37,7 +37,7 @@ class Ruby
     def install_bundler
       puts 'Installing bundler'
 
-      system "bash --login -i -c 'rvm use #{Code.ruby_version}; rvm @global do gem install bundler'"
+      system('gem install bundler')
     end
   end
 end
