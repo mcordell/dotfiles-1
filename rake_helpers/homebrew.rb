@@ -40,30 +40,12 @@ class Homebrew
       puts 'Installing packages'
 
       `brew install \
-      ctags \
-      gdbm \
       git \
-      go \
-      imagemagick \
-      leiningen \
-      libelf \
-      libffi \
-      libevent \
-      libxml2 \
-      libxslt \
-      libyaml \
       memcached \
-      node \
       phantomjs \
       postgresql \
       qt \
-      reattach-to-user-namespace \
-      the_silver_searcher \
-      tmux \
-      vim \
-      wemux \
-      wget \
-      zsh
+      vim
       `
     end
   end
