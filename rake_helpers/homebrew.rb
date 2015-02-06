@@ -2,8 +2,6 @@ class Homebrew
   class << self
     def setup
       install_or_update_homebrew
-
-      install_packages
     end
 
     def update
@@ -21,51 +19,33 @@ class Homebrew
     end
 
     def exists?
-      `brew`.match(%r(Example usage)) ? true : false
+      system 'which brew > /dev/null'
     end
 
     def install
-      puts 'Installing homebrew'
+      puts 'Installing Homebrew'
 
-      `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
+      system('ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
+
+      puts 'Finished installing Homebrew.'
+
+      puts 'Running brew doctor'
+
+      system('brew doctor')
+
+      install_packages
     end
 
     def install_packages
       puts 'Installing packages'
 
       `brew install \
-      phantomjs \
-      reattach-to-user-namespace \
-      the_silver_searcher \
-      tmux \
-      wget \
       git \
       memcached \
-      autoconf \
-      automake \
-      go \
-      imagemagick \
-      leiningen \
-      libelf \
-      libevent \
-      libxml2 \
-      libxslt \
-      openssl \
+      phantomjs \
       postgresql \
-      chruby \
-      ruby-build \
-      node \
-      zsh \
-      gdbm \
-      libffi \
-      ruby-install \
-      libyaml \
-      openssl \
-      readline \
-      vim \
-      wemux \
-      ctags \
-      qt
+      qt \
+      vim
       `
     end
   end

@@ -1,21 +1,26 @@
 class Code
   class << self
     def setup
-      setup_git_directories
-
       copy_gemrc
 
-      `git clone https://github.com/currica/web.git`
+      setup_git_directories
+
+      system('git clone https://github.com/currica/web.git')
     end
 
     def install_gems
-      # Requires a change to web to work properly.
-      # `bundle install`
+      puts 'Installing gems'
+
+      #https://github.com/bundler/bundler/issues/925
+      require 'bundler'
+      Bundler.with_clean_env do
+        system "bash --login -i -c 'rvm use #{Code.ruby_version}; cd #{Dir.home}/Code/Work/currica/web; bundle install'"
+      end
+      puts 'Gems installed'
     end
 
     def ruby_version
-      # Assuming that dotfiles and web repos live in the same directory.
-      f = IO.read(File.absolute_path('../web/.ruby-version'))
+      f = IO.read("#{Dir.home}/Code/Work/currica/web/.ruby-version")
       f.lines[0].strip()
     end
 
@@ -24,10 +29,11 @@ class Code
       `mkdir ~/Code`
       `mkdir ~/Code/Work`
       `mkdir ~/Code/Work/currica`
-      Dir.chdir("#{Dir.home}/Code/Work/currica/web")
+      Dir.chdir("#{Dir.home}/Code/Work/currica")
     end
 
     def copy_gemrc
+      # Run from the dotfiles repo
       `cp ruby/.gemrc #{Dir.home}/.gemrc`
     end
   end
