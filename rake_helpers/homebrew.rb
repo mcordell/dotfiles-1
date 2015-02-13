@@ -37,14 +37,14 @@ class Homebrew
     def install_packages
       Output.with_linebreak 'Installing missing packages (if any).'
 
-      packages = [
-        'git',
-        'memcached',
-        'phantomjs',
-        'postgresql',
-        'qt',
-        'vim'
-      ]
+      packages = %w(
+        git,
+        memcached,
+        phantomjs,
+        postgresql,
+        qt,
+        vim
+      )
 
       packages.each do |package|
         unless system "brew list #{package} &> /dev/null"

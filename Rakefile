@@ -1,4 +1,4 @@
-Dir['./rake_helpers/*.rb'].each {|file| require file }
+Dir['./rake_helpers/*.rb'].each { |file| require file }
 
 namespace :dotfiles do
   task :bootstrap do

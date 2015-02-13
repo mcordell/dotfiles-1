@@ -13,7 +13,9 @@ class Ruby
     end
 
     def rvm_warning
-      Output.with_linebreak "Please run 'source ~/.profile' in your console to complete installation."
+      Output.with_linebreak %(
+        Please run 'source ~/.profile' in your console to complete installation.
+      )
     end
 
     private
@@ -26,8 +28,10 @@ class Ruby
     end
 
     def install_latest_ruby
-      Output.with_linebreak 'Installing latest ruby. WARNING this takes a while.'
-      Output.system_with_linebreak "bash --login -i -c 'rvm install ruby-#{Code.ruby_version}'"
+      Output.with_linebreak 'Installing latest ruby. This takes a while.'
+      Output.system_with_linebreak %(
+        bash --login -i -c 'rvm install ruby-#{Code.ruby_version}'
+      )
     end
 
     def use_latest_ruby
