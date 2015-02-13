@@ -32,7 +32,7 @@ class Homebrew
 
 
     def install_packages
-      puts 'Installing missing packages.'
+      puts 'Installing missing packages (if any).'
       packages = [
         'git',
         'memcached',
@@ -43,20 +43,11 @@ class Homebrew
       ]
 
       packages.each do |package|
-        unless system "brew list #{package} &> /dev/null/"
+        unless system "brew list #{package} &> /dev/null"
           puts "Installing #{package}"
           system "brew install #{package}"
         end
       end
-
-      # `brew install \
-      # git \
-      # memcached \
-      # phantomjs \
-      # postgresql \
-      # qt \
-      # vim
-      # `
     end
   end
 end
