@@ -31,7 +31,6 @@ class Code
       `mkdir ~/Code/Work`
       `mkdir ~/Code/Work/currica`
       Dir.chdir("#{Dir.home}/Code/Work/currica")
-      Output.linebreak
     end
 
     def copy_gemrc

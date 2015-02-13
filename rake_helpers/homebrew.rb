@@ -47,7 +47,6 @@ class Homebrew
         unless system "brew list #{package} &> /dev/null"
           Output.with_linebreak "Installing #{package}."
           Output.system_with_linebreak "brew install #{package}"
-          Output.linebreak
         end
       end
 
