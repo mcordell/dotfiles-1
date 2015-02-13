@@ -15,25 +15,19 @@ class Homebrew
     def install
       Output.with_linebreak 'Installing Homebrew.'
 
-      system 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
-
-      Output.linebreak
+      Output.system_with_linebreak 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
 
       Output.with_linebreak 'Finished installing Homebrew.'
 
       Output.with_linebreak 'Running brew doctor'
 
-      system 'brew doctor'
-
-      Output.linebreak
+      Output.system_with_linebreak 'brew doctor'
     end
 
     def update
       Output.with_linebreak 'Updating Homebrew'
 
-      system 'brew update && brew upgrade'
-
-      Output.linebreak
+      Output.system_with_linebreak 'brew update && brew upgrade'
     end
 
 
@@ -46,17 +40,14 @@ class Homebrew
         'phantomjs',
         'postgresql',
         'qt',
-        'vim',
-        'tmux',
-        'wemux'
+        'vim'
       ]
 
       packages.each do |package|
         unless system "brew list #{package} &> /dev/null"
           Output.with_linebreak "Installing #{package}."
-          system "brew install #{package}"
+          Output.system_with_linebreak "brew install #{package}"
           Output.linebreak
-          Output.with_linebreak "Installation of #{package} complete."
         end
       end
 

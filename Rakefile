@@ -15,10 +15,6 @@ namespace :dotfiles do
     Ruby.rvm_warning
   end
 
-  task :test do
-    Homebrew.setup
-  end
-
   task :symlinks do
     [Zsh, Vim, Tmux, Tmuxinator, Git].each do |klass|
       klass.set_symlinks

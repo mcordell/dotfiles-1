@@ -8,5 +8,10 @@ class Output
       puts text
       Output.linebreak
     end
+
+    def system_with_linebreak(text)
+      system text
+      Output.linebreak
+    end
   end
 end

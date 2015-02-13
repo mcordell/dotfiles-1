@@ -5,18 +5,19 @@ class Code
 
       setup_git_directories
 
-      system('git clone https://github.com/currica/web.git')
+      Output.system_with_linebreak 'git clone https://github.com/currica/web.git'
     end
 
     def install_gems
-      puts 'Installing gems'
+      Output.with_linebreak 'Installing gems'
 
       #https://github.com/bundler/bundler/issues/925
       require 'bundler'
       Bundler.with_clean_env do
-        system "bash --login -i -c 'rvm use #{Code.ruby_version}; cd #{Dir.home}/Code/Work/currica/web; bundle install'"
+        Output.system_with_linebreak "bash --login -i -c 'rvm use #{Code.ruby_version}; cd #{Dir.home}/Code/Work/currica/web; bundle install'"
       end
-      puts 'Gems installed'
+
+      Output.with_linebreak 'Gems installed'
     end
 
     def ruby_version
@@ -30,6 +31,7 @@ class Code
       `mkdir ~/Code/Work`
       `mkdir ~/Code/Work/currica`
       Dir.chdir("#{Dir.home}/Code/Work/currica")
+      Output.linebreak
     end
 
     def copy_gemrc
