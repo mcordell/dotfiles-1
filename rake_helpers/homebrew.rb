@@ -17,6 +17,8 @@ class Homebrew
 
       system 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
 
+      Output.linebreak
+
       Output.with_linebreak 'Finished installing Homebrew.'
 
       Output.with_linebreak 'Running brew doctor'
@@ -52,7 +54,8 @@ class Homebrew
       packages.each do |package|
         unless system "brew list #{package} &> /dev/null"
           Output.with_linebreak "Installing #{package}."
-          Output.with_linebreak "brew install #{package}"
+          system "brew install #{package}"
+          Output.linebreak
           Output.with_linebreak "Installation of #{package} complete."
         end
       end
