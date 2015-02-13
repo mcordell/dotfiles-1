@@ -11,10 +11,13 @@ class Code
     def install_gems
       Output.with_linebreak 'Installing gems'
 
-      #https://github.com/bundler/bundler/issues/925
+      # https://github.com/bundler/bundler/issues/925
       require 'bundler'
       Bundler.with_clean_env do
-        Output.system_with_linebreak "bash --login -i -c 'rvm use #{Code.ruby_version}; cd #{Dir.home}/Code/Work/currica/web; bundle install'"
+        Output.system_with_linebreak %(
+          bash --login -i -c 'rvm use #{Code.ruby_version};
+          cd #{Dir.home}/Code/Work/currica/web; bundle install'
+        )
       end
 
       Output.with_linebreak 'Gems installed'
@@ -22,9 +25,8 @@ class Code
 
     def ruby_version
       f = IO.read("#{Dir.home}/Code/Work/currica/web/.ruby-version")
-      f.lines[0].strip()
+      f.lines[0].strip
     end
-
 
     def setup_git_directories
       `mkdir ~/Code`

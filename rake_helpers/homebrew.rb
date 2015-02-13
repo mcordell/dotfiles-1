@@ -1,5 +1,7 @@
 class Homebrew
   class << self
+    HOMEBREW_INSTALL_URL = 'https://raw.githubusercontent.com/Homebrew/install/master/install'
+
     def setup
       exists? ? update : install
 
@@ -15,7 +17,9 @@ class Homebrew
     def install
       Output.with_linebreak 'Installing Homebrew.'
 
-      Output.system_with_linebreak 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
+      Output.system_with_linebreak %(
+        ruby -e "$(curl -fsSL #{HOMEBREW_INSTALL_URL})"
+      )
 
       Output.with_linebreak 'Finished installing Homebrew.'
 
@@ -29,7 +33,6 @@ class Homebrew
 
       Output.system_with_linebreak 'brew update && brew upgrade'
     end
-
 
     def install_packages
       Output.with_linebreak 'Installing missing packages (if any).'
