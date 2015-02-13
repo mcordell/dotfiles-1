@@ -13,41 +13,51 @@ class Homebrew
     end
 
     def install
-      puts 'Installing Homebrew.'
+      Output.with_linebreak 'Installing Homebrew.'
 
       system 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
 
-      puts 'Finished installing Homebrew.'
+      Output.with_linebreak 'Finished installing Homebrew.'
 
-      puts 'Running brew doctor'
+      Output.with_linebreak 'Running brew doctor'
 
       system 'brew doctor'
+
+      Output.linebreak
     end
 
     def update
-      puts 'Updating Homebrew'
+      Output.with_linebreak 'Updating Homebrew'
 
-      `brew update && brew upgrade`
+      system 'brew update && brew upgrade'
+
+      Output.linebreak
     end
 
 
     def install_packages
-      puts 'Installing missing packages (if any).'
+      Output.with_linebreak 'Installing missing packages (if any).'
+
       packages = [
         'git',
         'memcached',
         'phantomjs',
         'postgresql',
         'qt',
-        'vim'
+        'vim',
+        'tmux',
+        'wemux'
       ]
 
       packages.each do |package|
         unless system "brew list #{package} &> /dev/null"
-          puts "Installing #{package}"
-          system "brew install #{package}"
+          Output.with_linebreak "Installing #{package}."
+          Output.with_linebreak "brew install #{package}"
+          Output.with_linebreak "Installation of #{package} complete."
         end
       end
+
+      Output.with_linebreak 'Done installing packages.'
     end
   end
 end
