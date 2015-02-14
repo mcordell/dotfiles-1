@@ -39,10 +39,10 @@ Style/RaiseArgs:
   EnforcedStyle: compact
 
 Style/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
+  EnforcedStyle: space
 
 Style/StringLiterals:
-  EnforcedStyle: single_space
+  EnforcedStyle: single_quotes
 
 Style/TrailingComma:
   EnforcedStyleForMultiline: 'comma'

@@ -1,7 +1,7 @@
 class Output
   class << self
     def linebreak
-      puts "------------------------------------"
+      puts '------------------------------------'
     end
 
     def with_linebreak(text)
