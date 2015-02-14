@@ -38,11 +38,11 @@ class Homebrew
       Output.with_linebreak 'Installing missing packages (if any).'
 
       packages = %w(
-        git,
-        memcached,
-        phantomjs,
-        postgresql,
-        qt,
+        git
+        memcached
+        phantomjs
+        postgresql
+        qt
         vim
       )
 
