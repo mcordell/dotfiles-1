@@ -5,7 +5,9 @@ class Zsh
       `ln -s #{zsh_config} "$HOME/.zshrc"`
       `ln -s #{zshenv_config} "$HOME/.zshenv"`
       # Homebrew and Chruby configuration
-      # ln -s "$(brew --prefix)/Library/Contributions/brew_zsh_completion.zsh" /usr/local/share/zsh/site-functions
+      # TODO: Not Working
+      # ln -s "$(brew --prefix)/Library/Contributions/brew_zsh_completion.zsh"
+      # /usr/local/share/zsh/site-functions
     end
 
     def setup
@@ -16,11 +18,11 @@ class Zsh
     private
 
     def zsh_config
-      "$HOME/.dotfiles/zsh/zshrc"
+      '$HOME/.dotfiles/zsh/zshrc'
     end
 
     def zshenv_config
-      "$HOME/.dotfiles/zsh/zshenv"
+      '$HOME/.dotfiles/zsh/zshenv'
     end
   end
 end

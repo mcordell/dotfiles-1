@@ -29,7 +29,7 @@ class Vim
     private
 
     def vim_config
-      "$HOME/.dotfiles/vim/vimrc"
+      '$HOME/.dotfiles/vim/vimrc'
     end
   end
 end

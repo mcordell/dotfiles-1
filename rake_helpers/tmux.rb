@@ -7,7 +7,7 @@ class Tmux
     private
 
     def tmux_config
-      "$HOME/.dotfiles/tmux/tmux.conf"
+      '$HOME/.dotfiles/tmux/tmux.conf'
     end
   end
 end
