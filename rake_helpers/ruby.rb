@@ -13,31 +13,35 @@ class Ruby
     end
 
     def rvm_warning
-      puts "Please run 'source ~/.profile' in your console to complete installation."
+      Output.with_linebreak %(
+        Please run 'source ~/.profile' in your console to complete installation.
+      )
     end
 
     private
 
     def install_rvm
-      puts 'Installing RVM'
+      Output.with_linebreak 'Installing RVM.'
       `\\curl -sSL https://get.rvm.io | bash -s stable`
-      system "source #{Dir.home}/.rvm/scripts/rvm"
-      puts 'RVM installed'
+      Output.system_with_linebreak "source #{Dir.home}/.rvm/scripts/rvm"
+      Output.with_linebreak 'RVM installed.'
     end
 
     def install_latest_ruby
-      puts 'Installing latest ruby. WARNING this takes a while.'
-      system "bash --login -i -c 'rvm install ruby-#{Code.ruby_version}'"
+      Output.with_linebreak 'Installing latest ruby. This takes a while.'
+      Output.system_with_linebreak %(
+        bash --login -i -c 'rvm install ruby-#{Code.ruby_version}'
+      )
     end
 
     def use_latest_ruby
-      puts 'using the latest ruby'
+      Output.with_linebreak 'Using the latest ruby.'
     end
 
     def install_bundler
-      puts 'Installing bundler'
+      Output.with_linebreak 'Installing bundler'
 
-      system('gem install bundler')
+      Output.system_with_linebreak 'gem install bundler'
     end
   end
 end

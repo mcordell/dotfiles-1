@@ -8,7 +8,7 @@ class Tmuxinator
     private
 
     def tmuxinator_files
-      "$HOME/.dotfiles/tmuxinator/"
+      '$HOME/.dotfiles/tmuxinator/'
     end
   end
 end

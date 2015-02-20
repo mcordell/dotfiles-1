@@ -1,4 +1,4 @@
-Dir['./rake_helpers/*.rb'].each {|file| require file }
+Dir['./rake_helpers/*.rb'].each { |file| require file }
 
 namespace :dotfiles do
   task :bootstrap do
@@ -16,17 +16,15 @@ namespace :dotfiles do
   end
 
   task :symlinks do
-    [Zsh, Vim, Tmux, Tmuxinator, Git].each do |klass|
-      klass.set_symlinks
-    end
+    [Zsh, Vim, Tmux, Tmuxinator, Git].each(&:set_symlinks)
   end
 
   task :plugins do
-    [Zsh, Vim].each { |klass| klass.setup }
+    [Zsh, Vim].each(&:setup)
   end
 
   task :update do
-    Homebrew.update
+    Homebrew.setup
 
     Ruby.update
 

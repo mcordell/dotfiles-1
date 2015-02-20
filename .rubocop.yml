@@ -1,0 +1,48 @@
+AllCops:
+  RunRailsCops: true
+
+Metrics/BlockNesting:
+  Max: 2
+
+Metrics/LineLength:
+  AllowURI: true
+  Max: 80
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 20
+
+Metrics/ParameterLists:
+  Max: 4
+  CountKeywordArgs: true
+
+Style/CollectionMethods:
+  PreferredMethods:
+    map:      'collect'
+    reduce:   'inject'
+    find:     'detect'
+    find_all: 'select'
+
+Style/Documentation:
+  Enabled: false
+
+Style/EachWithObject:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: true
+
+Style/MethodName:
+  Enabled: true
+
+Style/RaiseArgs:
+  EnforcedStyle: compact
+
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/TrailingComma:
+  EnforcedStyleForMultiline: 'comma'

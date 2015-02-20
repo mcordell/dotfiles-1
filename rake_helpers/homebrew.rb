@@ -1,52 +1,59 @@
 class Homebrew
   class << self
+    HOMEBREW_INSTALL_URL = 'https://raw.githubusercontent.com/Homebrew/install/master/install'
+
     def setup
-      install_or_update_homebrew
-    end
+      exists? ? update : install
 
-    def update
-      puts 'Updating Homebrew'
-
-      `brew update && brew upgrade`
+      install_packages
     end
 
     private
-
-    def install_or_update_homebrew
-      puts 'Installing or updating homebrew'
-
-      exists? ? update : install
-    end
 
     def exists?
       system 'which brew > /dev/null'
     end
 
     def install
-      puts 'Installing Homebrew'
+      Output.with_linebreak 'Installing Homebrew.'
 
-      system('ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
+      Output.system_with_linebreak %(
+        ruby -e "$(curl -fsSL #{HOMEBREW_INSTALL_URL})"
+      )
 
-      puts 'Finished installing Homebrew.'
+      Output.with_linebreak 'Finished installing Homebrew.'
 
-      puts 'Running brew doctor'
+      Output.with_linebreak 'Running brew doctor'
 
-      system('brew doctor')
+      Output.system_with_linebreak 'brew doctor'
+    end
 
-      install_packages
+    def update
+      Output.with_linebreak 'Updating Homebrew'
+
+      Output.system_with_linebreak 'brew update && brew upgrade'
     end
 
     def install_packages
-      puts 'Installing packages'
+      Output.with_linebreak 'Installing missing packages (if any).'
 
-      `brew install \
-      git \
-      memcached \
-      phantomjs \
-      postgresql \
-      qt \
-      vim
-      `
+      packages = %w(
+        git
+        memcached
+        phantomjs
+        postgresql
+        qt
+        vim
+      )
+
+      packages.each do |package|
+        unless system "brew list #{package} &> /dev/null"
+          Output.with_linebreak "Installing #{package}."
+          Output.system_with_linebreak "brew install #{package}"
+        end
+      end
+
+      Output.with_linebreak 'Done installing packages.'
     end
   end
 end
