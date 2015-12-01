@@ -16,7 +16,7 @@ class Code
       Bundler.with_clean_env do
         Output.system_with_linebreak %(
           bash --login -i -c 'rvm use #{Code.ruby_version};
-          cd #{Dir.home}/Code/Work/currica/web; bundle install'
+          cd #{q_centrix_dir}/web; bundle install'
         )
       end
 
@@ -24,15 +24,17 @@ class Code
     end
 
     def ruby_version
-      f = IO.read("#{Dir.home}/Code/Work/currica/web/.ruby-version")
+      f = IO.read("#{q_centrix_dir}/web/.ruby-version")
       f.lines[0].strip
     end
 
     def setup_git_directories
-      `mkdir ~/Code`
-      `mkdir ~/Code/Work`
-      `mkdir ~/Code/Work/currica`
-      Dir.chdir("#{Dir.home}/Code/Work/currica")
+      `mkdir -p #{q_centrix_dir}`
+      Dir.chdir(q_centrix_dir)
+    end
+
+    def q_centrix_dir
+      "#{Dir.home}/Code/Work/q-centrix"
     end
 
     def copy_gemrc
