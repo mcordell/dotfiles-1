@@ -44,6 +44,7 @@ class Homebrew
         postgresql
         qt
         vim
+        gpg
       )
 
       packages.each do |package|
